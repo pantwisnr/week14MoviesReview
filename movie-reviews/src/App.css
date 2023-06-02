@@ -157,7 +157,8 @@ nav ul li:hover {
 
 
 /*  MOVIE COMPONENT START */
-.main {
+
+.movie__wrapper {
   height: 100vh;
   background: red;
   display: grid;
@@ -166,15 +167,17 @@ nav ul li:hover {
   position: relative;
 }
 
-.main > * {
+
+.movie__wrapper > * {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
 }
 
-.main .movie-detail {
-  margin-top: -2rem;
+
+.movie__wrapper .movie-detail {
+  margin-top: 1rem;
   padding-left: 8rem;
 
   display: flex;
@@ -184,7 +187,8 @@ nav ul li:hover {
   
 }
 
-.main .movie__title {
+
+.movie__wrapper .movie__title {
   text-transform: uppercase;
   font-size: 3.2rem;
   color: white;
@@ -193,24 +197,28 @@ nav ul li:hover {
   /* letter-spacing: 1px; */
 }
 
-.main .movie__ratings  {
+
+.movie__wrapper .movie__ratings  {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.main .movie__ratings > * {
+
+.movie__wrapper .movie__ratings > * {
   font-size: 1rem;
   margin-right: 1.2rem;
   color: white;
 }
 
-.main .movie__ratings h4:nth-child(1) {
+
+.movie__wrapper .movie__ratings h4:nth-child(1) {
   color: blue;
   font-size: 1.2rem;
 }
 
-.main .movie__ratings h4:nth-child(3) {
+
+.movie__wrapper .movie__ratings h4:nth-child(3) {
   width: 30px;
   height: 25px;
   background: #888;
@@ -221,34 +229,53 @@ nav ul li:hover {
   align-items: center;
 }
 
-.main .movie__synopsis {
+
+.movie__wrapper .movie__synopsis {
   margin: 1rem 0;
 }
 
-.main .movie__playBtn {
+.movie__wrapper .openModal {
+  padding: 0.2rem 0.35rem;
+  border: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 0px #333;
+  transition: all 0.33s ease;
+}
+
+.movie__wrapper .openModal:hover {
+  outline: 1px solid #333;
+  transform: translateY(-1px);
+}
+
+.movie__wrapper .movie__playBtn {
   padding: 0.5rem 2.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-size: 1rem;
   cursor: pointer;
 }
 
-.main .rate-reviews {
+
+.movie__wrapper .rate-reviews {
   display: flex;
   margin-block: 0.65rem -0.35rem;
 }
 
-.main .movie-trailer {
+
+.movie__wrapper .movie-trailer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.main .movie-trailer > * {
+
+.movie__wrapper .movie-trailer > * {
   margin: 0 0.75rem;
 }
 
-.main .trailer__btn {
+
+.movie__wrapper .trailer__btn {
   width: 70px;
   height: 70px;
   padding-left: 0.45rem;
@@ -265,11 +292,13 @@ nav ul li:hover {
   
 }
 
-.main .trailer__btn:hover {
+
+.movie__wrapper .trailer__btn:hover {
   transform: translateY(-1px);
 }
 
-.main .trailer__text {
+
+.movie__wrapper .trailer__text {
   font-size: 1.1rem;
   font-weight: bold;
   color: white;
@@ -279,9 +308,9 @@ nav ul li:hover {
 
 
 .modal {
-  width: 100%;
+  width: 98%;
   height: 53%;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   margin: 0 auto;
   padding: 1rem;
   background: rgba(245, 245, 245, 0.96);
@@ -294,7 +323,44 @@ nav ul li:hover {
   
   display: none;
 
+  -webkit-animation-name: animatetop ;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
 }
+
+@-webkit-keyframes animatetop {
+  from {bottom:-300px; opacity:0} 
+  to {bottom:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {bottom:-300px; opacity:0}
+  to {bottom:0; opacity:1}
+}
+
+.openDialog {
+  display: block;
+}
+
+/* 
+.slideDown {
+  -webkit-animation-name: animatedown;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatedown;
+  animation-duration: 0.4s
+}
+
+
+@-webkit-keyframes animatedown {
+  from {bottom:0; opacity:1}
+  to {bottom:-300px; opacity:0} 
+}
+
+@keyframes animatedown {
+  from {bottom:0; opacity:1}
+  to {bottom:-300px; opacity:0}
+} */
 
 .modal > * {
   list-style: none;

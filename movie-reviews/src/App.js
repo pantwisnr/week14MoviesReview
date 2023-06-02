@@ -4,14 +4,15 @@ import Main from './components/Main';
 import MovieList from './components/MovieList';
 import Stars from './components/Stars';
 
+// Parent component that houses all other component
 
 function App() {
   return (
     <div className="App">
-      < Main />
+      < MovieList sectionMain={true}/>
       < Header />
       < Stars />
-      < MovieList />
+      < MovieList sectionMain={false} />
     </div>
   );
 }
