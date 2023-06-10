@@ -1,18 +1,17 @@
 import './App.css';
 import Header from './components/Header';
-import Main from './components/Main';
 import MovieList from './components/MovieList';
-import Stars from './components/Stars';
+import ReviewList from './components/ReviewList';
+
 
 // Parent component that houses all other component
 
 function App() {
   return (
     <div className="App">
-      < MovieList sectionMain={true}/>
+      < MovieList />
       < Header />
-      < Stars />
-      < MovieList sectionMain={false} />
+      
     </div>
   );
 }

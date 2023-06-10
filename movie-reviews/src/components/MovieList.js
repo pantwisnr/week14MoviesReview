@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Movie from "./Movie";
-import Main from "./Main";
+import Stars from './Stars';
 
 const MovieList = (props) => {
-    
+
+    const sectionMain = props.sectionMain;
+   
     const [allMovies, setAllMovies] = useState(
         [
             {
@@ -74,66 +76,15 @@ const MovieList = (props) => {
             },
         ]
     );
-        
-    const [oldtestUpdate, setTestUpdate] = useState('Test Updates')
 
-    const handleTestClickedMovie = () => {
 
-        const movies = allMovies;
-        // let currentMovie = setAllMovies;
-        // console.log(movies);
-        // console.log(setAllMovies);
-        
-        movies.forEach(movieElement => {
-            if(movieElement.id == 3){
-                // console.log('before clicked',  movieElement.status);
-                movieElement.status = 'active';
-                // currentMovie = movieElement.status;
-            }else {
-                movieElement.status = 'inactive';
-            }
-        });
-        console.log('after', [...movies]);
-        setAllMovies([...movies]);
-        // console.log('after clicked',  currentMovie);
-    };
-
-    const handleUpdatedMovies = () => {
-
-        const movies = allMovies;
-
-        movies.forEach(movieElement => {
-            if(movieElement.id == 3){
-                movieElement.status = 'active';
-            }else {
-                movieElement.status = 'inactive';
-            }
-        });
-        setAllMovies([...movies]);
-    };
-    
-    const handleSetMovies = (updatedMovie) => {
-        setAllMovies(updatedMovie);
-    };
-
-    const sectionMain = props.sectionMain;
-
-    if(sectionMain){
-        return (
-            <div className="allMovies">
-                < Main  allMovies={allMovies.filter((movie) => movie.status === 'active' )}/>
-                {/* <h3> {testUpdate} </h3> */}
-                <button onClick={handleTestClickedMovie}>Update Movie</button>
-            </div>
-        );
-    }
     return (
-        <div className="allMovies">
-             {/* <button onClick={handleTestClickedMovie}>Update Movie</button> */}
-             <h3> {oldtestUpdate} </h3>
-            < Movie  allMovies={allMovies} handleChangeWord={testUpdate => setTestUpdate(testUpdate)} handleUpdatedMovies={updatedMovies =>  setAllMovies([...updatedMovies])} />
-            {/* < Movie  allMovies={allMovies} setAllMovies={handleSetMovies}/> */}
-        </div>
+
+        <>
+            <Movie displayCurrentMovie={updatedMovie => setAllMovies(updatedMovie)} dashboard={!sectionMain}    allMovies={allMovies.filter((movie) => movie.status === 'active' )}  />
+
+            <Movie displayCurrentMovie={updatedMovie => setAllMovies(updatedMovie)} dashboard={sectionMain}    allMovies={allMovies}  />
+        </>
     );
 }
  
